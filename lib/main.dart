@@ -1,7 +1,7 @@
-import 'package:expenses_flutter/widgets/user_transaction.dart';
+import './widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 
-import 'package:expenses_flutter/widgets/new_transaction.dart';
+import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
 
 void main() {
@@ -28,20 +28,30 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('My Expenses App'),
-      ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Card(
-              color: Colors.blue,
-              child: Text('Chart'),
-              elevation: 5,
-            ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () => {},
           ),
-          UserTransaction(),
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                child: Card(
+                  color: Colors.blue,
+                  child: Text('Chart'),
+                  elevation: 5,
+                ),
+              ),
+              UserTransaction(),
+            ],
+          ),
+        ),
       ),
     );
   }
