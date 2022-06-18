@@ -26,7 +26,7 @@ class Chart extends StatelessWidget {
         'day': DateFormat.E().format(weekday).substring(0, 1),
         'amount': totalSum,
       };
-    });
+    }).reversed.toList();
   }
 
   double get maxSpending {
@@ -48,7 +48,11 @@ class Chart extends StatelessWidget {
             return Flexible(
               fit: FlexFit.tight,
               child: ChartBar(
-                  e['day'], e['amount'], maxSpending == 0.0 ? 0.0 : (e['amount'] as double) / maxSpending),
+                  e['day'],
+                  e['amount'],
+                  maxSpending == 0.0
+                      ? 0.0
+                      : (e['amount'] as double) / maxSpending),
             );
           }).toList(),
         ),
